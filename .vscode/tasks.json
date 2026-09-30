@@ -1,0 +1,24 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "print HTML",
+            "type": "shell",
+            "windows": {
+                //"command": "C:\\Users\\admin\\miniconda3\\condabin\\conda.bat run -n PH413_2026 jupyter nbconvert" ,
+                "command": "C:\\Users\\admin\\miniconda3\\Scripts\\conda.exe run -n PH413_2026 jupyter nbconvert",
+                "options": {"cwd":"${fileDirname}"},
+                "args": ["${fileBasename}", "--to=html", "--HTMLExporter.embed_images=True"]
+            },
+            "osx": {
+                "command": "/opt/miniconda3/bin/conda",
+                "options": {"cwd":"${fileDirname}"},
+                "args": ["run", "-n", "PH413_2026", "jupyter", "nbconvert", "${fileBasename}", "--to=html", "--HTMLExporter.embed_images=True"]
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
