@@ -101,6 +101,7 @@ int main() {
     cudaMalloc(&y_t, bytes); // Current y_i(t)
     cudaMalloc(&y, Nt*bytes); // Total trajectories of y_i
     cudaMalloc(&count, N*sizeof(int));
+    cudaMemset(count, 0, N*sizeof(int));
 
     init_state<<<gridSize, blockSize>>>(x_t, y_t, N);
     cudaDeviceSynchronize();
