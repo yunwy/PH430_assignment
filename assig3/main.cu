@@ -122,8 +122,8 @@ int main() {
     cudaMemcpy(h_x.data(), x, Nt*bytes, cudaMemcpyDeviceToHost);
     cudaMemcpy(h_y.data(), y, Nt*bytes, cudaMemcpyDeviceToHost);
 
-    cnpy::npz_save("data.npy", "x", h_x.data(), shape, "w");
-    cnpy::npz_save("data.npy", "y", h_y.data(), shape, "a");
+    cnpy::npz_save("data.npz", "x", h_x.data(), shape, "w");
+    cnpy::npz_save("data.npz", "y", h_y.data(), shape, "a");
 
     cudaFree(x_t);
     cudaFree(x);
